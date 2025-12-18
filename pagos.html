@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagos y Facturas | San Agustín</title>
+    <style>
+      :root {
+        --azul: #003366;
+        --dorado: #c5a059;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        background: #f4f7f6;
+        color: #333;
+      }
+      header {
+        background: var(--azul);
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+      .container {
+        padding: 20px 5% 40px 5%; /* Ajustado el padding superior */
+        max-width: 850px;
+        margin: auto;
+      }
+
+      /* Estilo de la flecha de navegación */
+      .btn-volver {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--azul);
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+      }
+
+      .pago-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border-top: 6px solid var(--dorado);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: var(--azul);
+        margin-top: 0;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--azul);
+        font-weight: bold;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+      }
+      .btn-enviar {
+        background: var(--azul);
+        color: white;
+        padding: 12px;
+        border: none;
+        width: 100%;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .btn-enviar:hover {
+        background: #002244;
+      }
+
+      /* Tabla de Historial */
+      .historial-container {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        background: #f8f9fa;
+        color: var(--azul);
+        padding: 15px;
+        text-align: left;
+      }
+      td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+      }
+      .status {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      .status.aprobado {
+        background: #e6fffa;
+        color: #28a745;
+      }
+      .status.pendiente {
+        background: #fffaf0;
+        color: #f6ad55;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <img src="assets/san agustin-modified.png" height="40" />
+        <span style="font-weight: bold">SAN AGUSTÍN</span>
+      </div>
+    </header>
+
+    <div class="container">
+      <div style="text-align: left">
+        <a href="dashboard.html" class="btn-volver">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="margin-right: 8px"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Volver a la sección anterior
+        </a>
+      </div>
+
+      <div class="pago-card">
+        <h2>Reportar Nuevo Pago</h2>
+        <form id="pagoForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+            <div class="form-group">
+              <label>Banco Emisor</label>
+              <select id="banco" required>
+                <option value="">Seleccione...</option>
+                <option>Banesco</option>
+                <option>Mercantil</option>
+                <option>Provincial</option>
+                <option>BNC</option>
+                <option>Pago Móvil</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Referencia</label>
+              <input
+                type="text"
+                id="referencia"
+                placeholder="Ej: 884210"
+                required
+              />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+            <div class="form-group">
+              <label>Monto ($)</label>
+              <input type="number" id="monto" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" id="fecha" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-enviar">Notificar Pago</button>
+        </form>
+      </div>
+
+      <h2>Historial de Pagos</h2>
+      <div class="historial-container">
+        <table id="tablaHistorial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Banco</th>
+              <th>Referencia</th>
+              <th>Monto</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10/11/2024</td>
+              <td>Banesco</td>
+              <td>#884210</td>
+              <td>$60.00</td>
+              <td><span class="status aprobado">Aprobado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("pagoForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const fechaInput = document.getElementById("fecha").value;
+          const banco = document.getElementById("banco").value;
+          const ref = document.getElementById("referencia").value;
+          const monto = document.getElementById("monto").value;
+
+          const partes = fechaInput.split("-");
+          const fechaFormateada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+
+          const tabla = document
+            .getElementById("tablaHistorial")
+            .getElementsByTagName("tbody")[0];
+          const nuevaFila = tabla.insertRow(0);
+
+          nuevaFila.innerHTML = `
+            <td>${fechaFormateada}</td>
+            <td>${banco}</td>
+            <td>#${ref}</td>
+            <td>$${parseFloat(monto).toFixed(2)}</td>
+            <td><span class="status pendiente">Pendiente</span></td>
+          `;
+
+          alert("¡Pago registrado con éxito!");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

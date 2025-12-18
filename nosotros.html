@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | Colegio San Agustín</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Estilos específicos para la página Nosotros */
+      .nosotros-hero {
+        background: linear-gradient(
+            rgba(0, 51, 102, 0.8),
+            rgba(0, 51, 102, 0.8)
+          ),
+          url("assets/instalaciones.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 10%;
+        text-align: center;
+      }
+
+      .trayectoria-badge {
+        background-color: #c5a059;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .info-section {
+        padding: 80px 15%;
+        background: white;
+        line-height: 1.8;
+      }
+
+      .info-section h2 {
+        color: #003366;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .mision-vision-grid {
+        display: flex;
+        gap: 30px;
+        margin: 50px 0;
+        flex-wrap: wrap;
+      }
+
+      .card-info {
+        flex: 1;
+        min-width: 300px;
+        padding: 40px;
+        background: #f4f7f6;
+        border-top: 5px solid #c5a059;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-info h3 {
+        color: #003366;
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+
+      .valores-section {
+        background-color: #003366;
+        color: white;
+        padding: 80px 10%;
+        text-align: center;
+      }
+
+      .valores-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .valor-box {
+        padding: 20px;
+        border: 1px solid rgba(197, 160, 89, 0.5);
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      .valor-box:hover {
+        background: rgba(197, 160, 89, 0.2);
+        transform: translateY(-5px);
+      }
+
+      .valor-box h4 {
+        color: #c5a059;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        background: #003366;
+        color: white;
+        text-align: center;
+        padding: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo" style="display: flex; align-items: center; gap: 10px">
+        <img
+          src="assets/san agustin-modified.png"
+          alt="Logo"
+          style="height: 50px"
+        />
+        <span style="font-weight: bold; font-size: 1.2rem; color: white"
+          >SAN AGUSTÍN</span
+        >
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li>
+            <a href="login.html" class="btn-zona-privada">Zona Privada</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="nosotros-hero">
+      <div class="trayectoria-badge">Desde 1998</div>
+      <h1>27 Años de Excelencia Educativa</h1>
+      <p>Formando líderes con integridad, fe y conocimiento en Venezuela.</p>
+    </section>
+
+    <main class="info-section">
+      <h2>¿Quiénes Somos?</h2>
+      <p>
+        Fundado en <strong>1998</strong>, el Colegio San Agustín nació con la
+        visión de ofrecer una educación de vanguardia basada en los pilares
+        fundamentales de la pedagogía agustiniana. A lo largo de nuestros
+        <strong>27 años de trayectoria</strong>, hemos sido testigos del
+        crecimiento y éxito de miles de alumnos que hoy son ciudadanos
+        ejemplares.
+      </p>
+      <p>
+        Nuestra institución se destaca por un ambiente de respeto, innovación
+        constante y una comunidad educativa unida, donde cada estudiante es el
+        protagonista de su propio aprendizaje.
+      </p>
+
+      <div
+        class="mision-vision-grid"
+        style="
+          display: flex;
+          gap: 30px;
+          margin: 50px 0;
+          flex-wrap: wrap;
+          justify-content: center;
+        "
+      >
+        <div
+          class="card-info"
+          style="
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            padding: 0;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-top: none;
+          "
+        >
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600"
+            alt="Misión"
+            style="width: 100%; height: 250px; object-fit: cover"
+          />
+          <div style="padding: 30px; border-top: 5px solid #c5a059">
+            <h3 style="color: #003366; font-size: 1.8rem; margin-bottom: 15px">
+              Misión
+            </h3>
+            <p style="color: #555; line-height: 1.7">
+              Proporcionar una formación integral de calidad que potencie las
+              capacidades cognitivas, espirituales y sociales de nuestros
+              estudiantes, preparándolos para los retos del mundo globalizado.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="card-info"
+          style="
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            padding: 0;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-top: none;
+          "
+        >
+          <img
+            src="./assets/vision.jpeg"
+            alt="Visión"
+            style="width: 100%; height: 250px; object-fit: cover"
+          />
+          <div style="padding: 30px; border-top: 5px solid #c5a059">
+            <h3 style="color: #003366; font-size: 1.8rem; margin-bottom: 15px">
+              Visión
+            </h3>
+            <p style="color: #555; line-height: 1.7">
+              Consolidarnos como la institución educativa referente en el país,
+              reconocida por nuestra innovación tecnológica, excelencia
+              académica y solidez en valores humanos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="valores-section">
+      <h2>Nuestros Valores Fundamentales</h2>
+      <div
+        class="valores-grid"
+        style="
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+          margin-top: 40px;
+          flex-wrap: nowrap;
+        "
+      >
+        <div
+          style="
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+            min-width: 180px;
+          "
+        >
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300"
+            style="width: 100%; height: 110px; object-fit: cover"
+          />
+          <div
+            style="
+              padding: 15px;
+              border-top: 4px solid #c5a059;
+              text-align: left;
+            "
+          >
+            <h4
+              style="
+                color: #003366;
+                font-size: 1.1rem;
+                margin-top: 0;
+                margin-bottom: 8px;
+              "
+            >
+              Verdad
+            </h4>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.3">
+              Buscamos la excelencia a través de la honestidad.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+            min-width: 180px;
+          "
+        >
+          <img
+            src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=300"
+            style="width: 100%; height: 110px; object-fit: cover"
+          />
+          <div
+            style="
+              padding: 15px;
+              border-top: 4px solid #c5a059;
+              text-align: left;
+            "
+          >
+            <h4
+              style="
+                color: #003366;
+                font-size: 1.1rem;
+                margin-top: 0;
+                margin-bottom: 8px;
+              "
+            >
+              Amor
+            </h4>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.3">
+              El motor de nuestra enseñanza y convivencia.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+            min-width: 180px;
+          "
+        >
+          <img
+            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300"
+            style="width: 100%; height: 110px; object-fit: cover"
+          />
+          <div
+            style="
+              padding: 15px;
+              border-top: 4px solid #c5a059;
+              text-align: left;
+            "
+          >
+            <h4
+              style="
+                color: #003366;
+                font-size: 1.1rem;
+                margin-top: 0;
+                margin-bottom: 8px;
+              "
+            >
+              Disciplina
+            </h4>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.3">
+              Formamos hábitos que garantizan el éxito.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+            min-width: 180px;
+          "
+        >
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300"
+            style="width: 100%; height: 110px; object-fit: cover"
+          />
+          <div
+            style="
+              padding: 15px;
+              border-top: 4px solid #c5a059;
+              text-align: left;
+            "
+          >
+            <h4
+              style="
+                color: #003366;
+                font-size: 1.1rem;
+                margin-top: 0;
+                margin-bottom: 8px;
+              "
+            >
+              Innovación
+            </h4>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.3">
+              Tecnología para una educación moderna.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Colegio San Agustín - Venezuela. Tradición y Futuro.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Control | Comunidad San Agustín</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Estilos base para el Panel */
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background-color: #f4f7f6;
+      }
+
+      header {
+        background-color: #003366;
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .welcome-section {
+        background: white;
+        padding: 30px 5%;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      .welcome-section h1 {
+        color: #003366;
+        margin: 0;
+        font-size: 1.8rem;
+      }
+      .welcome-section p {
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .btn-logout {
+        background-color: #c5a059;
+        color: white;
+        padding: 8px 18px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      .btn-logout:hover {
+        background-color: #b08d4a;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          src="assets/san agustin-modified.png"
+          alt="Logo San Agustín"
+          style="height: 45px"
+        />
+        <span style="font-weight: bold; font-size: 1.2rem; letter-spacing: 1px"
+          >SAN AGUSTÍN</span
+        >
+      </div>
+      <nav>
+        <a href="#" onclick="cerrarSesion()" class="btn-logout"
+          >Cerrar Sesión</a
+        >
+      </nav>
+    </header>
+
+    <div class="welcome-section">
+      <h1>Bienvenido, Representante</h1>
+      <p>
+        Desde aquí puede gestionar la información académica de su representado.
+      </p>
+    </div>
+
+    <div
+      class="panel-grid"
+      style="
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 0 5%;
+        flex-wrap: wrap;
+      "
+    >
+      <div
+        class="panel-card"
+        style="
+          flex: 1;
+          min-width: 200px;
+          max-width: 260px;
+          background: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400"
+          alt="Calificaciones"
+          style="width: 100%; height: 80px; object-fit: cover"
+        />
+        <div
+          style="
+            padding: 15px;
+            border-top: 4px solid #c5a059;
+            text-align: center;
+          "
+        >
+          <h3 style="color: #003366; font-size: 1.1rem; margin-bottom: 8px">
+            Calificaciones
+          </h3>
+          <p
+            style="
+              color: #666;
+              font-size: 0.85rem;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            "
+          >
+            Notas del lapso y descarga de boletín.
+          </p>
+          <a
+            href="calificaciones.html"
+            style="
+              display: inline-block;
+              padding: 8px 16px;
+              background: #003366;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+              font-size: 0.85rem;
+            "
+            >Ver Notas</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="panel-card"
+        style="
+          flex: 1;
+          min-width: 200px;
+          max-width: 260px;
+          background: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400"
+          alt="Pagos"
+          style="width: 100%; height: 80px; object-fit: cover"
+        />
+        <div
+          style="
+            padding: 15px;
+            border-top: 4px solid #c5a059;
+            text-align: center;
+          "
+        >
+          <h3 style="color: #003366; font-size: 1.1rem; margin-bottom: 8px">
+            Pagos y Facturas
+          </h3>
+          <p
+            style="
+              color: #666;
+              font-size: 0.85rem;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            "
+          >
+            Reporte de mensualidades y estados.
+          </p>
+          <a
+            href="pagos.html"
+            style="
+              display: inline-block;
+              padding: 8px 16px;
+              background: #003366;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+              font-size: 0.85rem;
+            "
+            >Gestionar Pagos</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="panel-card"
+        style="
+          flex: 1;
+          min-width: 200px;
+          max-width: 260px;
+          background: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400"
+          alt="Circulares"
+          style="width: 100%; height: 80px; object-fit: cover"
+        />
+        <div
+          style="
+            padding: 15px;
+            border-top: 4px solid #c5a059;
+            text-align: center;
+          "
+        >
+          <h3 style="color: #003366; font-size: 1.1rem; margin-bottom: 8px">
+            Circulares
+          </h3>
+          <p
+            style="
+              color: #666;
+              font-size: 0.85rem;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            "
+          >
+            Comunicados y calendario de eventos.
+          </p>
+          <a
+            href="circulares.html"
+            style="
+              display: inline-block;
+              padding: 8px 16px;
+              background: #003366;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+              font-size: 0.85rem;
+            "
+            >Ver Documentos</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="panel-card"
+        style="
+          flex: 1;
+          min-width: 200px;
+          max-width: 260px;
+          background: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400"
+          alt="Horarios"
+          style="width: 100%; height: 80px; object-fit: cover"
+        />
+        <div
+          style="
+            padding: 15px;
+            border-top: 4px solid #c5a059;
+            text-align: center;
+          "
+        >
+          <h3 style="color: #003366; font-size: 1.1rem; margin-bottom: 8px">
+            Horarios
+          </h3>
+          <p
+            style="
+              color: #666;
+              font-size: 0.85rem;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            "
+          >
+            Clases y actividades extraescolares.
+          </p>
+          <a
+            href="horarios.html"
+            style="
+              display: inline-block;
+              padding: 8px 16px;
+              background: #003366;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+              font-size: 0.85rem;
+            "
+            >Ver Horarios</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function cerrarSesion() {
+        if (confirm("¿Estás seguro de que deseas salir?")) {
+          window.location.href = "login.html";
+        }
+      }
+    </script>
+  </body>
+</html>
