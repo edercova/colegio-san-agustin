@@ -1,553 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colegio San Agustín | Venezuela</title>
-   
-
-   
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-      /* Ajustes específicos para el carrusel principal */
-      .carousel-container {
-        max-width: 100%;
-        margin: 0 auto;
-        position: relative;
-        background-color: #003366;
-        overflow: hidden;
-      }
-
-      .slide img {
-        width: 100%;
-        height: 80vh;
-        object-fit: cover;
-        display: block;
-      }
-
-      .hero-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        z-index: 10;
-        width: 85%;
-        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
-      }
-
-      .hero-overlay h1 {
-        font-size: 3.5rem;
-        margin-bottom: 10px;
-      }
-      .hero-overlay p {
-        font-size: 1.4rem;
-        margin-bottom: 25px;
-      }
-
-      /* Sección de Noticias */
-      .noticias-section {
-        padding: 60px 10%;
-        background-color: #f4f7f6;
-        text-align: center;
-      }
-
-      .noticias-grid {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        margin-top: 35px;
-        flex-wrap: wrap;
-      }
-
-      .noticia-card {
-        flex: 1;
-        min-width: 300px;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        transition: 0.3s;
-      }
-
-      .noticia-card:hover {
-        transform: translateY(-10px);
-      }
-
-      .noticia-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .noticia-body {
-        padding: 20px;
-      }
-      .noticia-fecha {
-        color: #c5a059;
-        font-weight: bold;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-      }
-      .noticia-body h3 {
-        color: #003366;
-        margin: 10px 0;
-        font-size: 1.25rem;
-      }
-      .noticia-body p {
-        color: #666;
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-
-      /* Botones de navegación del carrusel */
-      .prev,
-      .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 20px;
-        color: white;
-        font-weight: bold;
-        font-size: 24px;
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-        text-decoration: none;
-        z-index: 20;
-        margin: 0 10px;
-      }
-      .next {
-        right: 0;
-      }
-      .prev {
-        left: 0;
-      }
-      .prev:hover,
-      .next:hover {
-        background: rgba(197, 160, 89, 0.8);
-      }
-
-      /* =========================================
-         ESTILOS WHATSAPP FLOTANTE (ESTILO JOIN.CHAT)
-         ========================================= */
-      .whatsapp-container {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        font-family: "Segoe UI", sans-serif;
-      }
-
-      .whatsapp-tooltip {
-        width: 260px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        margin-bottom: 15px;
-        overflow: hidden;
-        animation: fadeInWA 0.8s ease forwards;
-        display: none; /* Se activa por JS */
-      }
-
-      .tooltip-header {
-        background: #25d366;
-        color: white;
-        padding: 10px 15px;
-        font-size: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .btn-cerrar-tooltip {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-        line-height: 1;
-      }
-
-      .tooltip-body {
-        padding: 15px;
-        background: #f9f9f9;
-        text-align: left;
-      }
-
-      .tooltip-body p {
-        margin: 0;
-        font-size: 14px;
-        color: #333;
-        line-height: 1.4;
-      }
-
-      .tooltip-footer {
-        padding: 10px 15px;
-        text-align: center;
-        background: white;
-      }
-
-      .btn-abrir-chat {
-        background: #25d366;
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: bold;
-        display: inline-block;
-        transition: 0.3s;
-      }
-
-      .btn-abrir-chat:hover {
-        background: #128c7e;
-      }
-
-      .whatsapp-icon-main {
-        width: 60px;
-        height: 60px;
-        background-color: #25d366;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 35px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        text-decoration: none;
-        transition: transform 0.3s ease;
-      }
-
-      .whatsapp-icon-main:hover {
-        transform: scale(1.1);
-      }
-
-      @keyframes fadeInWA {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
+        /* ESTILOS INTEGRADOS - Esto asegura que se vea bien en celulares */
+        :root {
+            --azul: #003366;
+            --dorado: #c5a059;
+            --blanco: #ffffff;
+            --gris-fondo: #f4f7f6;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
 
-      .wa-hidden {
-        display: none !important;
-      }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--gris-fondo);
+        }
+
+        /* HEADER CORREGIDO */
+        header {
+            background-color: var(--azul);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-link img { height: 45px; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-zona-privada {
+            background-color: var(--dorado);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        /* CARRUSEL HERO */
+        .carousel-container {
+            position: relative;
+            background-color: var(--azul);
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+        }
+
+        .hero-overlay h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* FOOTER CORREGIDO */
+        footer {
+            background-color: var(--azul);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* WHATSAPP ESTILO JOIN.CHAT */
+        .wa-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .wa-tooltip {
+            width: 250px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+            display: none;
+            overflow: hidden;
+        }
+
+        .wa-header { background: #25d366; color: white; padding: 10px; font-size: 12px; font-weight: bold; }
+        .wa-body { padding: 15px; font-size: 14px; color: #333; }
+        .wa-btn-chat { 
+            background: #25d366; color: white; padding: 8px 15px; 
+            border-radius: 20px; text-decoration: none; display: inline-block; font-weight: bold;
+        }
+
+        .wa-icon {
+            width: 60px; height: 60px; background: #25d366; 
+            border-radius: 50%; display: flex; align-items: center; 
+            justify-content: center; color: white; font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;
+        }
+
+        /* RESPONSIVO PARA CELULARES */
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero-overlay h1 { font-size: 1.8rem; }
+            nav ul { gap: 10px; }
+        }
     </style>
-  </head>
-  <body>
-    <header>
-      <a
-        href="index.html"
-        class="logo-link"
-        style="
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        "
-      >
-        <img
-          src="./assets/san agustin-modified.png"
-          alt="Logo Colegio San Agustín"
-          style="height: 50px"
-        />
-        <span style="font-weight: bold; font-size: 1.2rem; color: white"
-          >SAN AGUSTÍN</span
-        >
-      </a>
+</head>
+<body>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li>
-            <a href="login.html" class="btn-zona-privada">Zona Privada</a>
-          </li>
-        </ul>
-      </nav>
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="san agustin-modified.png" alt="Logo">
+            <span>SAN AGUSTÍN</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="login.html" class="btn-zona-privada">Zona Privada</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-      <section class="carousel-container">
-        <div class="hero-overlay">
-          <h1>Excelencia Educativa</h1>
-          <p>Formando líderes con valores agustinianos.</p>
-          <button onclick="location.href='login.html'" class="btn-cta">
-            Solicitar Información
-          </button>
-        </div>
-
-        <div class="carousel-slide">
-          <div class="slide fade">
-            <img
-              src="assets/instalaciones.jpg"
-              onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756ebafe3?w=1200'"
-            />
-          </div>
-          <div class="slide fade">
-            <img
-              src="assets/eventos.jpg"
-              onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200'"
-            />
-          </div>
-          <div class="slide fade">
-            <img
-              src="assets/deportes.png"
-              onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200'"
-            />
-          </div>
-          <div class="slide fade">
-            <img
-              src="assets/tecnologia.jpg"
-              onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200'"
-            />
-          </div>
-          <div class="slide fade">
-            <img
-              src="./assets/modelaje.png"
-              onerror="this.src='https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1200'"
-            />
-          </div>
-          <div class="slide fade">
-            <img
-              src="./assets/celebracion.jpeg"
-              onerror="this.src='https://images.unsplash.com/photo-1514525253344-a812da99ff2f?w=1200'"
-            />
-          </div>
-
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-      </section>
-
-      <section class="noticias-section">
-        <h2 style="color: #003366; font-size: 2.5rem; margin-bottom: 10px">
-          Noticias Actuales
-        </h2>
-        <p style="color: #666">
-          Mantente al día con las actividades de nuestra comunidad.
-        </p>
-
-        <div class="noticias-grid">
-          <div class="noticia-card">
-            <img
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500"
-              alt="Inscripciones"
-            />
-            <div class="noticia-body">
-              <span class="noticia-fecha">18 de Diciembre, 2025</span>
-              <h3>Proceso de Inscripción 2026</h3>
-              <p>
-                Se informa a la comunidad que ya están abiertas las solicitudes
-                de cupo para el nuevo año escolar.
-              </p>
+        <section class="carousel-container">
+            <div class="hero-overlay">
+                <h1>Excelencia Educativa</h1>
+                <p>Formando líderes con valores agustinianos.</p>
+                <button onclick="location.href='login.html'" style="padding: 10px 20px; background: var(--dorado); border: none; color: white; border-radius: 5px; cursor: pointer;">
+                    Solicitar Información
+                </button>
             </div>
-          </div>
-          <div class="noticia-card">
-            <img
-              src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=500"
-              alt="Robótica"
-            />
-            <div class="noticia-body">
-              <span class="noticia-fecha">15 de Diciembre, 2025</span>
-              <h3>Triunfo en Robótica</h3>
-              <p>
-                Nuestro equipo de tecnología obtuvo el primer lugar en el
-                certamen regional de innovación científica.
-              </p>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?w=1200" alt="Fondo Colegio">
             </div>
-          </div>
-          <div class="noticia-card">
-            <img
-              src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500"
-              alt="Navidad"
-            />
-            <div class="noticia-body">
-              <span class="noticia-fecha">10 de Diciembre, 2025</span>
-              <h3>Gran Parrandón Agustiniano</h3>
-              <p>
-                Celebramos con alegría nuestras tradiciones navideñas con la
-                participación de toda la familia escolar.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="niveles"
-        style="padding: 60px 10%; text-align: center; background-color: #ffffff"
-      >
-        <h2 style="color: #003366; font-size: 2.5rem; margin-bottom: 10px">
-          Oferta Académica
-        </h2>
-        <p style="color: #666; margin-bottom: 40px">
-          Formación integral adaptada a cada etapa del crecimiento.
-        </p>
-
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-          "
-        >
-          <div class="noticia-card">
-            <img src="./assets/inicial.jfif" alt="Educación Inicial" />
-            <div class="noticia-body">
-              <h3 style="color: #003366; margin-top: 0">Educación Inicial</h3>
-              <p>
-                Un ambiente seguro y estimulante para los más pequeños, donde el
-                aprendizaje comienza a través del juego y el afecto.
-              </p>
-              <a
-                href="#"
-                style="
-                  color: #c5a059;
-                  font-weight: bold;
-                  text-decoration: none;
-                  font-size: 0.9rem;
-                "
-                >Ver más →</a
-              >
-            </div>
-          </div>
-
-          <div class="noticia-card">
-            <img src="./assets/primaria.jfif" alt="Educación Primaria" />
-            <div class="noticia-body">
-              <h3 style="color: #003366; margin-top: 0">Educación Primaria</h3>
-              <p>
-                Desarrollamos bases sólidas en lectoescritura, pensamiento
-                lógico y valores humanos fundamentales.
-              </p>
-              <a
-                href="#"
-                style="
-                  color: #c5a059;
-                  font-weight: bold;
-                  text-decoration: none;
-                  font-size: 0.9rem;
-                "
-                >Ver más →</a
-              >
-            </div>
-          </div>
-
-          <div class="noticia-card">
-            <img src="./assets/bachillerato.jpg" alt="Bachillerato" />
-            <div class="noticia-body">
-              <h3 style="color: #003366; margin-top: 0">Bachillerato</h3>
-              <p>
-                Preparación académica de alto nivel y orientación vocacional
-                para asegurar el éxito en la etapa universitaria.
-              </p>
-              <a
-                href="#"
-                style="
-                  color: #c5a059;
-                  font-weight: bold;
-                  text-decoration: none;
-                  font-size: 0.9rem;
-                "
-                >Ver más →</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
 
-    <div class="whatsapp-container">
-      <div class="whatsapp-tooltip" id="waTooltip">
-        <div class="tooltip-header">
-          <span>Colegio <strong>San Agustín</strong></span>
-          <button onclick="cerrarTooltip()" class="btn-cerrar-tooltip">
-            &times;
-          </button>
-        </div>
-        <div class="tooltip-body">
-          <p>Hola 👋<br />¿Necesitas información sobre inscripciones?</p>
-        </div>
-        <div class="tooltip-footer">
-          <a
-            href="https://wa.me/584120000000?text=Hola,%20quisiera%20solicitar%20información%20sobre%20el%20colegio"
-            target="_blank"
-            class="btn-abrir-chat"
-          >
-            Abrir chat
-          </a>
-        </div>
-      </div>
-      <a
-        href="https://wa.me/584120000000"
-        class="whatsapp-icon-main"
-        target="_blank"
-      >
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
-
     <footer>
-      <p>
-        &copy; 2025 Colegio San Agustín - Venezuela. Todos los derechos
-        reservados.
-      </p>
+        <p>&copy; 2025 Colegio San Agustín - Venezuela. <br> Todos los derechos reservados.</p>
     </footer>
 
+    <div class="wa-container">
+        <div class="wa-tooltip" id="waTooltip">
+            <div class="wa-header">Colegio San Agustín</div>
+            <div class="wa-body">
+                Hola 👋 ¿En qué podemos ayudarte hoy?
+                <br><br>
+                <center><a href="https://wa.me/584120000000" class="wa-btn-chat" target="_blank">Abrir chat</a></center>
+            </div>
+        </div>
+        <a href="#" class="wa-icon" onclick="toggleWA(); return false;">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <script>
-      /* LÓGICA DEL CARRUSEL */
-      let slideIndex = 1;
-      showSlides(slideIndex);
-
-      function plusSlides(n) {
-        showSlides((slideIndex += n));
-      }
-
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {
-          slideIndex = 1;
+        function toggleWA() {
+            var tip = document.getElementById('waTooltip');
+            tip.style.display = (tip.style.display === 'block') ? 'none' : 'block';
         }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slides[slideIndex - 1].style.display = "block";
-      }
-
-      setInterval(() => {
-        plusSlides(1);
-      }, 6000);
-
-      /* LÓGICA DE WHATSAPP */
-      function cerrarTooltip() {
-        document.getElementById("waTooltip").classList.add("wa-hidden");
-      }
-
-      // El globo de texto aparece a los 4 segundos de entrar a la web
-      setTimeout(() => {
-        const tooltip = document.getElementById("waTooltip");
-        if (!tooltip.classList.contains("wa-hidden")) {
-          tooltip.style.display = "block";
-        }
-      }, 4000);
+        
+        // Mostrar mensaje automáticamente a los 3 segundos
+        setTimeout(() => {
+            document.getElementById('waTooltip').style.display = 'block';
+        }, 3000);
     </script>
-  </body>
+</body>
 </html>
-
-
